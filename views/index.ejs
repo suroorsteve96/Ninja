@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello,Ninja</title>
+</head>
+<body class="bg-light">
+
+<div class="container" id="root">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-12">
+
+            <button class="btn btn-dark" @click="openModal">Add New Ninja</button>
+        </div>
+    </div>
+
+    <!-- Modal of Add Ninja-->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Ninja</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name of Ninja</label>
+                        <input type="text" class="form-control" v-model="newNinja.name">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Age of Ninja</label>
+                        <input type="number" class="form-control" v-model="newNinja.age">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email of Ninja</label>
+                        <input type="email" class="form-control" v-model="newNinja.email">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Phone of Ninja</label>
+                        <input type="number" class="form-control" v-model="newNinja.number">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Programing Lang.</label>
+                        <input type="text" class="form-control" v-model="newNinja.pro">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Code of Ninja</label>
+                        <input type="number" class="form-control" v-model="newNinja.code">
+
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="option1" checked>
+                        <label class="form-check-label">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="option2">
+                        <label class="form-check-label">
+                            Female
+                        </label>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" @click="addNinja">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--End  Modal of Add Ninja-->
+    <!-- Modal of edit Ninja-->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Info. of this Ninja</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Name of Ninja</label>
+                        <input type="text" class="form-control" v-model="editingNinja.name">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Age of Ninja</label>
+                        <input type="number" class="form-control" v-model="editingNinja.age">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email of Ninja</label>
+                        <input type="email" class="form-control" v-model="editingNinja.email">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Phone of Ninja</label>
+                        <input type="number" class="form-control" v-model="editingNinja.number">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Programing Lang.</label>
+                        <input type="text" class="form-control" v-model="editingNinja.pro">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Code of Ninja</label>
+                        <input type="number" class="form-control" v-model="editingNinja.code">
+
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="male" value="option1" checked>
+                        <label class="form-check-label">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gender" id="female" value="option2">
+                        <label class="form-check-label">
+                            Female
+                        </label>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" @click="saveNinja">save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--End  Modal of edit Ninja-->
+
+
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body p-0">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Age</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Programing lang.</th>
+                            <th>Code</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr v-for="(ninja,index) in ninjas">
+                            <td>{{index+1}}</td>
+                            <td>{{ninja.name}}</td>
+                            <td>{{ninja.age}}</td>
+                            <td>{{ninja.email}}</td>
+                            <td>{{ninja.number}}</td>
+                            <td>{{ninja.pro}}</td>
+                            <td>{{ninja.code}}</td>
+                            <td>
+                                <button class="btn btn-danger btn-sm " @click="removeNinja(ninja._id)">Remove</button>
+                                <button class="btn btn-primary btn-sm " @click="editNinja(ninja)">Edit</button>
+                            </td>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<script>
+    var app = new Vue({
+        el: '#root',
+        data: {
+            ninjas: [],
+            newNinja: {
+                name: "",
+                age: 0,
+                email: "",
+                number: 0,
+                pro: "",
+                code: 0,
+
+            },
+            editingNinja: {
+                name: "",
+                age: 0,
+                email: "",
+                number: 0,
+                pro: "",
+                code: 0,
+            }
+
+        },
+        methods: {
+            openModal: function () {
+                $('#addModal').modal('show');
+            },
+            addNinja: function () {
+                axios.post('/api/ninjas', {ninja: this.newNinja}).then(function (response) {
+                    if (response.data.isSuc) {
+                        axios.get('/api/ninjas').then(function (response) {
+                            app.ninjas = response.data;
+                        });
+                        $('#addModal').modal('hide');
+                        this.newNinja = {
+                            name: "",
+                            age: 0,
+                            email: "",
+                            number: 0,
+                            pro: "",
+                            code: 0,
+
+                        }
+                    }
+                }).catch(function (error) {
+                    console.log('error')
+                })
+
+
+            },
+            removeNinja: function (id) {
+                axios.delete('/api/ninjas',
+                    {
+                        params: {
+                            id: id
+                        }
+                    }).then(function (response) {
+                    if (response.data.isSuc) {
+                        axios.get('/api/ninjas').then(function (response) {
+                            app.ninjas = response.data;
+                        });
+
+                    }
+                })
+            },
+            editNinja: function (ninja) {
+                this.editingNinja = ninja;
+                $('#editModal').modal('show');
+
+            },
+            saveNinja: function () {
+                axios.put('/api/ninjas', {ninja: this.editingNinja}).then(function (response) {
+                    if (response.data.isSuc) {
+                        $('#editModal').modal('hide');
+                        axios.get('/api/ninjas').then(function (response) {
+                            app.ninjas = response.data;
+                        })
+                    }
+                })
+            }
+        },
+        mounted: function () {
+            axios.get('/api/ninjas').then(function (response) {
+                app.ninjas = response.data;
+            })
+        }
+    });
+
+
+</script>
+</body>
+</html>
