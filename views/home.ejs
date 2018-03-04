@@ -34,20 +34,20 @@
             padding: 15px;
             margin: 10px 500px auto;
         }
-        #info{
+
+        #info {
             font-family: 'Archivo ';
             font-size: 25px;
         }
+
 
     </style>
 </head>
 <body>
 
 
-
-
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark ">
-    <a class="navbar-brand" href="#" style="color:rgba(255,0,0,0.8);font-size: 2em ">Dollars</a>
+    <a class="navbar-brand" href="#home">Dollars</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -78,18 +78,19 @@
 </nav>
 
 
-<main style="height: 700px" id="home"><br><br><br><br><br><br><br><br><br><br>
+<main id="home"><br><br><br><br><br><br><br><br><br><br>
     <div class="container-fluid ">
         <div class="row  justify-content-center ">
             <div class="col-12 col-md-6  p-0 ">
 
                 <form>
 
-                    <div class="form-group " style="color: #c0392b">
+                    <div class="form-group ">
                         If You Want To Join Dollars
                         You Should Have The Code To participated
 
-                        <input  v-model="ninja" type="text" class="form-control" v-on:keyup.enter="getIndex" id="enterCode" placeholder="Enter The Code" autofocus>
+                        <input v-model="ninja" type="password" class="form-control" v-on:keyup.enter="getIndex"
+                               id="enterCode" placeholder="Enter The Code" autofocus>
 
                         <button type="submit" class="btn btn-danger mt-3" @click="getIndex">Send</button>
                     </div>
@@ -102,18 +103,15 @@
         </div>
 
 
-
-
-
     </div>
     <div v-if="flag==true" class="row justify-content-center" id="info">
 
         <div class="col-12 col-md-5 mt-3">
             <div class="row justify-content-center">
 
-                <div class=" card bg-light" >
+                <div class=" card bg-light">
 
-                    <div class="card-body bg-danger" style="opacity: 0.5;color: gainsboro">
+                    <div class="card-body bg-danger">
                         <h5 class="card-title">Your Informaition Is:-</h5>
                         <h5>Your Name : {{choosedNinja.name}}</h5>
                         <h5>Your Age : {{choosedNinja.age}}</h5>
@@ -121,10 +119,63 @@
                         <h5>Your Number : {{choosedNinja.number}}</h5>
                         <h5>Your Language is : {{choosedNinja.pro}}</h5>
                         <h5>Your Number : {{choosedNinja.number}}</h5>
-                        <button type="submit" class="btn btn-secondary mt-3" >me</button>
-                        <button type="submit" class="btn btn-primary mt-3" >not me</button>
 
 
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Me
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Congratulations</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        you are particpated to dollars
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#notMe">
+                            not me
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="notMe" tabindex="-1" role="dialog"
+                             aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Sorry</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        please contact us!
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -137,21 +188,21 @@
             <div class="col-12-auto mt-4 align-self-center ">
 
 
-            <h1 id="noNinja" style="color: #bd081c"></h1>
+                <h1 id="noNinja"></h1>
             </div>
         </div>
     </div>
 
 
-
-</main><br><br><br><br><br><br><br><br><br>
+</main>
+<br><br><br><br><br><br><br><br><br>
 
 <section id="about">
     <div class="container-fluid">
 
         <div class="row justify-content-center ">
             <div class="col-12-auto col-md-4 col-lg-3 m-3">
-                <div class="card" style="width: 18rem;">
+                <div class="card">
                     <img class="card-img-top" src="../images/html.png" alt="Card image cap">
                     <div class="card-body">
                         <h1 class="card-text">Html</h1>
@@ -219,17 +270,17 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12-auto mt-3 align-content-center">
-                <h1>If You Have Problem !!! Contact  Me .</h1>
+                <h1>If You Have Problem !!! Contact Me .</h1>
             </div>
         </div>
         <br><br><br>
         <div class="row justify-content-center">
             <div class="col-12 col-lg-6">
-                <i class="fa fa-phone" style="font-size:70px;color:red"></i>
+                <i class="fa fa-phone" style="font-size:60px;color:red"></i>
                 <h1>+9647715593954</h1>
             </div>
             <div class="col-12 col-lg-6">
-                <i class="fa fa-envelope" style="font-size:70px;color:red"></i>
+                <i class="fa fa-envelope" style="font-size:60px;color:red"></i>
                 <h1>suroorsteve96@yahoo.com</h1>
             </div>
         </div>
@@ -274,6 +325,7 @@
         var marker = new google.maps.Marker({position: myCenter});
         marker.setMap(map);
     }
+
     axios.get('http://localhost:3000/api/ninjas').then(function (response) {
         app.ninjas = response.data
     });
@@ -287,9 +339,9 @@
             choosedNinja: {},
             email: '',
             number: 0,
-            pro:'',
-            name:'',
-            flag:false,
+            pro: '',
+            name: '',
+            flag: false,
 
         },
         methods: {
@@ -298,18 +350,19 @@
                     if (this.ninja == this.ninjas[i].code) {
                         this.choosedNinja = this.ninjas[i]
                         this.email = this.choosedNinja.email
-                        this.flag=true
+                        this.flag = true
                         this.pro = this.choosedNinja.pro
 
                         return;
 
-                    }else (this.ninja !== this.ninjas[i].code)
-                    {
-                        document.getElementById('noNinja').innerHTML="sorry you are not participated in Dollars";
-                        return 0;
-                    }
+                    } else (this.ninja !== this.ninjas[i].code)
+                {
+                    document.getElementById('noNinja').innerHTML = "sorry you are not participated in Dollars";
+                    return 0;
+                }
 
             },
+
         }
     })
 
